@@ -26,9 +26,9 @@ grayImage = cv2.cvtColor(originalImage, cv2.COLOR_BGR2GRAY)
 (thresh, blackAndWhiteImage) = cv2.threshold(grayImage, 127, 255, cv2.THRESH_BINARY)
 
 # uncomment below lines to preview image
-#cv2.imshow('Black white image', blackAndWhiteImage)  
-#cv2.waitKey(0)
-#cv2.destroyAllWindows()
+cv2.imshow('Black & white image', blackAndWhiteImage)  
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 # global coordinates of where to start drawing (change if needed!)
 x_start = 100
@@ -44,8 +44,8 @@ pg.moveTo(x_start, y_start)
 random_rows = list(range(len(blackAndWhiteImage)))
 
 # comment two lines below if you want a "printer" like behavior
-#random_rows = random.sample(range(len(blackAndWhiteImage)), len(blackAndWhiteImage))
-#random.shuffle(random_rows)
+random_rows = random.sample(range(len(blackAndWhiteImage)), len(blackAndWhiteImage))
+random.shuffle(random_rows)
 
 # loop over pixel rows
 for y in random_rows:
@@ -59,6 +59,7 @@ for y in random_rows:
         if row[x] == 0:
             # draw pixel!
             pg.click(x_start + x, y_start + y, _pause=False)
+            print('Drawing at:', x_start + x, y_start + y)
             
             # animation speed
             time.sleep(0.008)
