@@ -40,22 +40,13 @@ time.sleep(5)
 # put mouse mointer into initial position
 pg.moveTo(x_start, y_start)
 
-# get row indexes
-random_rows = list(range(len(blackAndWhiteImage)))
-
-# comment two lines below if you want a "printer" like behavior
-random_rows = random.sample(range(len(blackAndWhiteImage)), len(blackAndWhiteImage))
-random.shuffle(random_rows)
-
 # loop over pixel rows
-for y in random_rows:
-    # randomize cols traversal order
+for y in range(len(blackAndWhiteImage)):
+    # init row
     row = blackAndWhiteImage[y]
-    random_cols = list(range(len(row)))
-    random.shuffle(random_cols)
     
     # loop over pixel cols
-    for x in random_cols:
+    for x in range(len(row)):
         if row[x] == 0:
             # draw pixel!
             pg.click(x_start + x, y_start + y, _pause=False)
