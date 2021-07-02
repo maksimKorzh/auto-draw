@@ -31,7 +31,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 # global coordinates of where to start drawing (change if needed!)
-x_start = 100
+x_start = 250
 y_start = 150
 
 # wait before user clicks on window to within
@@ -63,6 +63,4 @@ for y in random_rows:
             
             # animation speed
             time.sleep(0.008)
-
-
 
